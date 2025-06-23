@@ -1,0 +1,51 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "Add" : {
+
+    },
+    "Add to a Playlist..." : {
+
+    },
+    "Create Station" : {
+
+    },
+    "Favorite" : {
+
+    },
+    "Go to Album" : {
+
+    },
+    "Home" : {
+
+    },
+    "Library" : {
+
+    },
+    "New" : {
+
+    },
+    "Radio" : {
+
+    },
+    "Recently Played" : {
+
+    },
+    "Search" : {
+
+    },
+    "Share" : {
+
+    },
+    "Share Litycs..." : {
+
+    },
+    "Top Picks for You" : {
+
+    },
+    "View Credits" : {
+
+    }
+  },
+  "version" : "1.1"
+}
