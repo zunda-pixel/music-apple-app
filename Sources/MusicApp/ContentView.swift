@@ -28,12 +28,14 @@ enum TabItem: CaseIterable {
   }
 }
 
-struct ContentView: View {
+public struct ContentView: View {
   @State var text = ""
   @State var isPresentedNowPlayingView = false
   @State var selectedTabItem: TabItem = .home
   @State var nowPlayingState = NowPlayingState(music: .union)
   @Namespace var namespace
+  
+  public init() {}
   
   @ViewBuilder
   func tabView(_ tabItem: TabItem) -> some View {
@@ -55,7 +57,7 @@ struct ContentView: View {
       }
   }
   
-  var body: some View {
+  public var body: some View {
     TabView(selection: $selectedTabItem) {
       ForEach(TabItem.allCases, id: \.self) { tabItem in
         Tab(value: tabItem, role: tabItem == .search ? .search : nil) {

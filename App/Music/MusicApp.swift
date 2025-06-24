@@ -1,4 +1,5 @@
 import SwiftUI
+import MusicApp
 
 @main
 struct MusicApp: App {

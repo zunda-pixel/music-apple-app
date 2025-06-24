@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		2E40E1B52E0ABD75005DF2A4 /* MusicApp in Frameworks */ = {isa = PBXBuildFile; productRef = 2E40E1B42E0ABD75005DF2A4 /* MusicApp */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		2E4EBDA02E0ABCBF00014930 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -52,6 +56,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2E40E1B52E0ABD75005DF2A4 /* MusicApp in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,6 +117,7 @@
 			);
 			name = Music;
 			packageProductDependencies = (
+				2E40E1B42E0ABD75005DF2A4 /* MusicApp */,
 			);
 			productName = Music;
 			productReference = 2E4EBD922E0ABCBE00014930 /* Music.app */;
@@ -195,6 +201,9 @@
 			);
 			mainGroup = 2E4EBD892E0ABCBE00014930;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				2E40E1B32E0ABD75005DF2A4 /* XCLocalSwiftPackageReference "../../music-apple-app" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = 2E4EBD932E0ABCBE00014930 /* Products */;
 			projectDirPath = "";
@@ -599,6 +608,20 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCLocalSwiftPackageReference section */
+		2E40E1B32E0ABD75005DF2A4 /* XCLocalSwiftPackageReference "../../music-apple-app" */ = {
+			isa = XCLocalSwiftPackageReference;
+			relativePath = "../../music-apple-app";
+		};
+/* End XCLocalSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		2E40E1B42E0ABD75005DF2A4 /* MusicApp */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = MusicApp;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 2E4EBD8A2E0ABCBE00014930 /* Project object */;
 }
