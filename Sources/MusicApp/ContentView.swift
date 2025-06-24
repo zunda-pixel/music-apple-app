@@ -68,7 +68,6 @@ struct ContentView: View {
     .tabViewBottomAccessory {
       if let music = nowPlayingState.music {
         NowPlayingBottomAccesory(music: music)
-          .navigationTransition(.zoom(sourceID: 1, in: namespace))
           .tint(.primary)
           .contentShape(.capsule)
           .onTapGesture {
@@ -77,14 +76,15 @@ struct ContentView: View {
           .padding(.leading, 10)
           .padding(.trailing, 15)
           .gesture(swipeUpGesture)
+          .matchedTransitionSource(id: 1, in: namespace)
       }
     }
-    .tint(.pink)
-    .searchable(text: $text)
-    .sheet(isPresented: $isPresentedNowPlayingView) {
+    .fullScreenCover(isPresented: $isPresentedNowPlayingView) {
       NowPlayingView()
         .navigationTransition(.zoom(sourceID: 1, in: namespace))
     }
+    .tint(.pink)
+    .searchable(text: $text)
     .environment(nowPlayingState)
   }
 }
@@ -123,29 +123,23 @@ struct NowPlayingBottomAccesory: View {
         Image(systemName: "play.fill")
       }
       
-      switch self.tabViewBottomAccessoryPlacement {
-      case .inline:
-        Spacer()
-          .frame(maxWidth: 15)
-        Button {
-          
-        } label: {
-          HStack(spacing: 0) {
-            Image(systemName: "play.fill")
-            Image(systemName: "play.fill")
+      if let tabViewBottomAccessoryPlacement {
+        switch tabViewBottomAccessoryPlacement {
+        case .inline:
+          Spacer()
+            .frame(maxWidth: 15)
+          Button {
+            
+          } label: {
+            HStack(spacing: 0) {
+              Image(systemName: "play.fill")
+              Image(systemName: "play.fill")
+            }
           }
-        }
-      case .expanded: EmptyView()
-      default:
-        Spacer()
-          .frame(maxWidth: 15)
-        Button {
-          
-        } label: {
-          HStack(spacing: 0) {
-            Image(systemName: "play.fill")
-            Image(systemName: "play.fill")
-          }
+        case .expanded:
+          EmptyView()
+        default:
+          fatalError()
         }
       }
     }
