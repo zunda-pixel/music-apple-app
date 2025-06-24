@@ -1,6 +1,7 @@
 import SwiftUI
 
 struct NowPlayingBottomAccesory: View {
+  @Environment(NowPlayingState.self) var nowPlayingState
   let music: Music
   
   // FIXME: tabViewBottomAccessoryPlacement has no value on iOS 26 beta 2
@@ -30,10 +31,15 @@ struct NowPlayingBottomAccesory: View {
       Spacer()
       
       Button {
-        
+        if nowPlayingState.playing {
+          nowPlayingState.pause()
+        } else {
+          nowPlayingState.play()
+        }
       } label: {
-        Image(systemName: "play.fill")
+        Image(systemName: nowPlayingState.playing ? "pause.fill" : "play.fill")
       }
+      .buttonStyle(.plain)
       
       if let tabViewBottomAccessoryPlacement {
         switch tabViewBottomAccessoryPlacement {
@@ -60,4 +66,5 @@ struct NowPlayingBottomAccesory: View {
 
 #Preview {
   NowPlayingBottomAccesory(music: .mySoftMachine)
+    .environment(NowPlayingState())
 }

@@ -1,7 +1,5 @@
 import SwiftUI
 
-
-
 struct HomeView: View {
   @Environment(NowPlayingState.self) var nowPlayingState
   @State var musics: [Music] = [
@@ -9,6 +7,14 @@ struct HomeView: View {
     .unofficial,
     .mySoftMachine,
     .togenkyo,
+    .sink,
+    .iLoveYouButYoureMakingMeSad,
+    .lover,
+    .somedayBest,
+    .cloudILiveWithBeingFake,
+    .ep2,
+    .getMeStarted,
+    .dragonfly
   ]
   
   var body: some View {    

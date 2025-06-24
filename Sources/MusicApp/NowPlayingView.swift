@@ -4,9 +4,18 @@ import SwiftUI
 final class NowPlayingState {
   var music: Music?
   var duration: TimeInterval = 0.0
+  var playing = false
   
   init(music: Music? = nil) {
     self.music = music
+  }
+  
+  func play() {
+    playing = true
+  }
+  
+  func pause() {
+    playing = false
   }
 }
 
@@ -14,7 +23,6 @@ struct NowPlayingView: View {
   @Environment(NowPlayingState.self) var state
   @State var soundVolume = 0.5
   @State var isShowLyrics = false
-  @State var isPlaying = false
   
   var body: some View {
     @Bindable var state = state
@@ -125,9 +133,13 @@ struct NowPlayingView: View {
               }
               Spacer()
               Button {
-                isPlaying.toggle()
+                if state.playing {
+                  state.pause()
+                } else {
+                  state.play()
+                }
               } label: {
-                Image(systemName: isPlaying ? "pause.fill" : "play.fill")
+                Image(systemName: state.playing ? "pause.fill" : "play.fill")
                   .resizable()
                   .frame(width: 40, height: 40)
                   .contentTransition(.symbolEffect(.replace, options: .default))
@@ -193,39 +205,4 @@ struct NowPlayingView: View {
 #Preview {
   NowPlayingView()
     .environment(NowPlayingState(music: .unofficial))
-}
-
-extension Music {
-  static let union = Self(
-    name: "Union",
-    artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music221/v4/f0/5a/91/f05a91ee-b7bb-e654-1c88-1ff0c847dc9e/25UMGIM60711.rgb.jpg/316x316bb.webp")!,
-    releaseDate: .now.addingTimeInterval(-10000000),
-    artist: .dukeDumont,
-    length: 60 * 3 + 15,
-    color: Color.cyan
-  )
-  static let mySoftMachine = Self(
-    name: "My Soft Machine",
-    artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music116/v4/b3/71/24/b3712425-be1d-925d-5b88-dbfa1d1a0f91/5400863128395_cover.jpg/316x316bb.webp")!,
-    releaseDate: .now.addingTimeInterval(-20000000),
-    artist: .arloParks,
-    length: 60 * 3 + 15,
-    color: .blue
-  )
-  static let togenkyo = Self(
-    name: "togenkyo",
-    artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music122/v4/7d/f7/16/7df7162f-fa7e-e2cf-0645-ac0f1f86dacb/4547366569926.jpg/316x316bb.webp")!,
-    releaseDate: .now.addingTimeInterval(-30000000),
-    artist: .yama,
-    length: 60 * 3 + 15,
-    color: .pink
-  )
-  static let unofficial = Self(
-    name: "UNOFFICIAL",
-    artworkURL: URL(string: "https://is1-ssl.mzstatic.com/image/thumb/Music111/v4/ca/1f/dc/ca1fdca8-4ab2-7934-1327-031df9553c72/4562256124283.jpg/316x316bf.webp")!,
-    releaseDate: .now.addingTimeInterval(-40000000),
-    artist: .theOralCigalettes,
-    length: 60 * 3 + 15,
-    color: .pink
-  )
 }
