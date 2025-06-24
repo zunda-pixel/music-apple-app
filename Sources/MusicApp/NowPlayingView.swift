@@ -202,7 +202,7 @@ extension Music {
     releaseDate: .now.addingTimeInterval(-10000000),
     artist: .dukeDumont,
     length: 60 * 3 + 15,
-    color: Color.cyan.opacity(0.5)
+    color: Color.cyan
   )
   static let mySoftMachine = Self(
     name: "My Soft Machine",
@@ -210,7 +210,7 @@ extension Music {
     releaseDate: .now.addingTimeInterval(-20000000),
     artist: .arloParks,
     length: 60 * 3 + 15,
-    color: .blue.opacity(0.5)
+    color: .blue
   )
   static let togenkyo = Self(
     name: "togenkyo",
@@ -218,7 +218,7 @@ extension Music {
     releaseDate: .now.addingTimeInterval(-30000000),
     artist: .yama,
     length: 60 * 3 + 15,
-    color: .pink.opacity(0.5)
+    color: .pink
   )
   static let unofficial = Self(
     name: "UNOFFICIAL",
@@ -226,6 +226,6 @@ extension Music {
     releaseDate: .now.addingTimeInterval(-40000000),
     artist: .theOralCigalettes,
     length: 60 * 3 + 15,
-    color: .pink.opacity(0.8)
+    color: .pink
   )
 }

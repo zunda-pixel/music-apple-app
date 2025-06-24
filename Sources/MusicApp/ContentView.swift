@@ -47,9 +47,9 @@ struct ContentView: View {
   
   var swipeUpGesture: some Gesture {
     DragGesture()
-      .onEnded {
-        if $0.location.y < $0.startLocation.y {
-          isPresentedNowPlayingView.toggle()
+      .onChanged {
+        if $0.startLocation.y - $0.location.y > 60 {
+          isPresentedNowPlayingView = true
         }
       }
   }
