@@ -20,6 +20,7 @@ final class NowPlayingState {
 }
 
 struct NowPlayingView: View {
+  @Environment(\.dismiss) var dismiss
   @Environment(NowPlayingState.self) var state
   @State var soundVolume = 0.5
   @State var isShowLyrics = false
@@ -30,6 +31,19 @@ struct NowPlayingView: View {
     NavigationStack {
       VStack {
         VStack(spacing: 30) {
+          Capsule()
+            .frame(maxWidth: .infinity, maxHeight: 20)
+            .foregroundStyle(.clear)
+            .contentShape(.capsule)
+            .overlay {
+              Capsule()
+                .frame(width: 60, height: 5)
+                .foregroundStyle(.primary.secondary)
+            }
+            .onTapGesture {
+              dismiss()
+            }
+
           Spacer()
 
           if let music = state.music {
