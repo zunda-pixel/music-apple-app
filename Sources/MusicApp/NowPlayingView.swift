@@ -60,9 +60,9 @@ struct NowPlayingView: View {
             HStack(spacing: 0) {
               VStack(alignment: .leading) {
                 Text(music.name)
-                  .font(.title.bold())
+                  .font(.title2.bold())
                 Text(music.artist.name)
-                  .font(.title2)
+                  .font(.title3)
                   .foregroundStyle(.secondary)
               }
               Spacer()
