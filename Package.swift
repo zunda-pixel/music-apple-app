@@ -15,9 +15,15 @@ let package = Package(
       targets: ["MusicApp"]
     ),
   ],
+  dependencies: [
+    .package(url: "https://github.com/onevcat/Kingfisher.git", from: "8.3.3")
+  ],
   targets: [
     .target(
-      name: "MusicApp"
+      name: "MusicApp",
+      dependencies: [
+        .product(name: "Kingfisher", package: "Kingfisher"),
+      ]
     ),
     .testTarget(
       name: "MusicAppTests",
