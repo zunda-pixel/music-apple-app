@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct HomeView: View {
   @Environment(NowPlayingState.self) var nowPlayingState
@@ -25,14 +26,9 @@ struct HomeView: View {
             LazyHStack {
               ForEach(musics) { music in
                 VStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 200, height: 220)
-
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .frame(width: 200, height: 220)
                   
                   Text(music.name)
                     .bold()
@@ -59,14 +55,11 @@ struct HomeView: View {
             LazyHStack {
               ForEach(musics) { music in
                 VStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 150, height: 150)
-                      .clipShape(.rect(cornerRadius: 10))
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .frame(width: 150, height: 150)
+                    .clipShape(.rect(cornerRadius: 10))
+
                   Text(music.name)
                     .font(.caption.bold())
                   Text(music.artist.name)
@@ -101,14 +94,10 @@ struct HomeView: View {
             LazyHStack {
               ForEach(musics) { music in
                 VStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 200, height: 220)
-
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .resizable()
+                    .frame(width: 200, height: 220)
                   
                   Text(music.name)
                     .bold()

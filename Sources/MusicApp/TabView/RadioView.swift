@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct RadioView: View {
   @Environment(NowPlayingState.self) var nowPlayingState
@@ -17,14 +18,9 @@ struct RadioView: View {
             LazyHStack {
               ForEach(musics) { music in
                 VStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 200, height: 220)
-
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .frame(width: 200, height: 220)
                   
                   Text(music.name)
                     .bold()

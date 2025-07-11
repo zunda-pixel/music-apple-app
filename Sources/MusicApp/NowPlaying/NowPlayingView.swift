@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 @Observable
 final class NowPlayingState {
@@ -47,16 +48,12 @@ struct NowPlayingView: View {
           Spacer()
 
           if let music = state.music {
-            AsyncImage(url: music.artworkURL) { image in
-              image
-                .resizable()
-                .clipShape(.rect(cornerRadius: 14))
-                .aspectRatio(1, contentMode: .fit)
-                .padding(20)
-            } placeholder: {
-              ProgressView()
-            }
-            
+            KFImage(music.artworkURL)
+              .resizable()
+              .clipShape(.rect(cornerRadius: 14))
+              .aspectRatio(1, contentMode: .fit)
+              .padding(20)
+
             HStack(spacing: 0) {
               VStack(alignment: .leading) {
                 Text(music.name)

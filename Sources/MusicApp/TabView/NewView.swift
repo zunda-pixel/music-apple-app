@@ -1,4 +1,5 @@
 import SwiftUI
+import Kingfisher
 
 struct NewView: View {
   @Environment(NowPlayingState.self) var nowPlayingState
@@ -25,13 +26,9 @@ struct NewView: View {
             LazyHStack {
               ForEach(musics) { music in
                 VStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 200, height: 220)
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .frame(width: 200, height: 220)
                   
                   Text(music.name)
                     .bold()
@@ -61,14 +58,10 @@ struct NewView: View {
             ) {
               ForEach(musics) { music in
                 HStack {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .frame(width: 50, height: 50)
-                      .clipShape(.rect(cornerRadius: 10))
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .frame(width: 50, height: 50)
+                    .clipShape(.rect(cornerRadius: 10))
                 
                   HStack {
                     VStack(alignment: .leading, spacing: 0) {
@@ -140,14 +133,10 @@ struct NewView: View {
             ) {
               ForEach(musics) { music in
                 VStack(alignment: .leading, spacing: 0) {
-                  AsyncImage(url: music.artworkURL) { image in
-                    image
-                      .resizable()
-                      .aspectRatio(1, contentMode: .fit)
-                      .clipShape(.rect(cornerRadius: 10))
-                  } placeholder: {
-                    ProgressView()
-                  }
+                  KFImage(music.artworkURL)
+                    .resizable()
+                    .aspectRatio(1, contentMode: .fit)
+                    .clipShape(.rect(cornerRadius: 10))
                   Text(music.name)
                     .lineLimit(1)
                   Text(music.artist.name)
