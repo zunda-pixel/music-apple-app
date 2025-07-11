@@ -32,7 +32,7 @@ public struct ContentView: View {
   @State var text = ""
   @State var isPresentedNowPlayingView = false
   @State var selectedTabItem: TabItem = .home
-  @State var nowPlayingState = NowPlayingState(music: .union)
+  @State var nowPlayingState = NowPlayingState(music: nil)
   @Namespace var namespace
   
   public init() {}
